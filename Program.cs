@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -249,10 +249,20 @@ namespace ConsoleAppFramework
         /// </summary>
         internal void Display()
         {
+            int spaceNum = (height - 1).ToString().Length + 2;
+            Console.Write(new string(' ', spaceNum));
+
+            for (int i = 0; i < width; i++)
+            {
+                Console.Write("{0}  ", i);
+            }
+
+            Console.WriteLine();
+
             for (short row = 0; row < height; row++)
             {
                 Console.ResetColor();
-                Console.Write("[");
+                Console.Write("{0}{1}[", row, new string(' ', spaceNum - row.ToString().Length - 1));
 
                 for (short column = 0; column < width - 1; column++)
                 {
